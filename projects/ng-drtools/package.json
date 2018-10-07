@@ -1,6 +1,19 @@
 {
     "name": "ng-drtools",
     "version": "0.0.1",
+    "description": "Set of useful tools",
+    "author": {
+        "name": "Alejandro Dario Simi",
+        "url": "http://daemonraco.com/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/daemonraco/ng-drtools.git"
+    },
+    "license": "MIT",
+    "keywords": [
+        "drtools"
+    ],
     "peerDependencies": {
         "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
         "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
