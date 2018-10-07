@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
     styles: []
 })
 export class BasicsComponent implements OnInit {
+    public debug: boolean = false;
     public testData = [{
         userId: 1,
         id: 1,
@@ -23,9 +25,14 @@ export class BasicsComponent implements OnInit {
         body: "et iusto sed quo iure voluptatem occaecati omnis eligendi aut ad voluptatem doloribus vel accusantium quis pariatur molestiae porro eius odio et labore et velit aut"
     }];
 
-    constructor() {
+    constructor(private route: ActivatedRoute) {
     }
 
     ngOnInit() {
+        this.route.queryParams.subscribe(params => {
+            if (typeof params.debug !== 'undefined') {
+                this.debug = true;
+            }
+        });
     }
 }

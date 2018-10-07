@@ -3,11 +3,10 @@
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
-        "start": "ng serve",
+        "start": "ng serve --host 0.0.0.0",
+        "prebuild": "cp -v README.md projects/ng-drtools",
         "build": "ng-packagr -p projects/ng-drtools/ng-package.prod.json",
-        "test": "ng test",
-        "lint": "ng lint",
-        "e2e": "ng e2e"
+        "lint": "ng lint"
     },
     "private": true,
     "dependencies": {
