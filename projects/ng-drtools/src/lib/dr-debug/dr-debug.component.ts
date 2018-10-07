@@ -6,9 +6,11 @@ import { Component, Input, OnInit } from '@angular/core';
     templateUrl: './dr-debug.component.html'
 })
 export class DebugComponent implements OnInit {
-    @Input('data') public data: any;
+    @Input('data') public data: any = null;
 
     public show: boolean = false;
+    public showContent: boolean = false;
+    public showData: boolean = false;
 
     constructor(private route: ActivatedRoute) {
     }
@@ -19,5 +21,11 @@ export class DebugComponent implements OnInit {
                 this.show = true;
             }
         });
+
+        if (this.data !== null) {
+            this.showData = true;
+        } else {
+            this.showContent = true;
+        }
     }
 }
