@@ -1,10 +1,12 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
+import { DRLoadingService } from '../../../projects/ng-drtools/src/public_api';
+
 @Component({
     selector: 'app-basics',
     templateUrl: './basics.component.html',
-    styles: []
+    providers: [DRLoadingService]
 })
 export class BasicsComponent implements OnInit {
     public debug: boolean = false;
@@ -25,7 +27,14 @@ export class BasicsComponent implements OnInit {
         body: "et iusto sed quo iure voluptatem occaecati omnis eligendi aut ad voluptatem doloribus vel accusantium quis pariatur molestiae porro eius odio et labore et velit aut"
     }];
 
-    constructor(private route: ActivatedRoute) {
+    constructor(
+        private loading: DRLoadingService,
+        private route: ActivatedRoute) {
+    }
+
+    public showLoading(): void {
+        this.loading.start('Running for a moment...');
+        setTimeout(() => this.loading.stop(), 3000);
     }
 
     ngOnInit() {

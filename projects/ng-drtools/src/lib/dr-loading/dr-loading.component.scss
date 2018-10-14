@@ -1,0 +1,40 @@
+dr-loading {
+    .loading {
+        @keyframes ui-loading-spinner {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        background-color: rgba(0, 0, 0, .8);
+        border: none;
+        height: 100%;
+        left: 0px;
+        margin: 0px;
+        padding: 0px;
+        padding-top: 15%;
+        position: fixed;
+        text-align: center;
+        top: 0px;
+        width: 100%;
+        z-index: 9999;
+        $loading-size: 50px;
+        $loading-border-size: 5px;
+        .message:before {
+            animation: ui-loading-spinner .7s linear infinite;
+            border: solid $loading-border-size rgba(0, 0, 0, 0);
+            border-bottom-color: white;
+            border-radius: $loading-size;
+            border-top-color: white;
+            content: "";
+            display: block;
+            height: $loading-size;
+            margin: 0px auto 20px auto;
+            width: $loading-size;
+        }
+        .message {
+            color: white !important;
+            display: block;
+            font-size: x-large;
+        }
+    }
+}

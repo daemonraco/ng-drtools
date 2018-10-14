@@ -1,11 +1,11 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 
 @Component({
     selector: 'dr-debug',
     templateUrl: './dr-debug.component.html'
 })
-export class DebugComponent implements OnInit {
+export class DebugComponent implements OnChanges, OnInit {
     @Input('data') public data: any = null;
 
     public show: boolean = false;
@@ -15,6 +15,9 @@ export class DebugComponent implements OnInit {
     constructor(private route: ActivatedRoute) {
     }
 
+    ngOnChanges() {
+        this.display();
+    }
     ngOnInit() {
         this.route.queryParams.subscribe(params => {
             if (typeof params.debug !== 'undefined') {
@@ -22,6 +25,10 @@ export class DebugComponent implements OnInit {
             }
         });
 
+        this.display();
+    }
+
+    protected display(): void {
         if (this.data !== null) {
             this.showData = true;
         } else {
