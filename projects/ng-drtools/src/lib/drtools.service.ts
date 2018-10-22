@@ -25,11 +25,7 @@ export class DRToolsService {
     //
     // Public methods.
     public mysql(tableName: string): DRToolsServiceMySQL {
-        if (!DRToolsService.Config.host || !DRToolsService.Config.mysqlUri) {
-            throw new Error(`DRToolsService is not configured. Have you used 'DRToolsService.SetConfig({ ... })'?`);
-        }
-
-        if (typeof this.mysqlTables[tableName] === 'undefined') {
+       if (typeof this.mysqlTables[tableName] === 'undefined') {
             this.mysqlTables[tableName] = new DRToolsServiceMySQL(tableName, DRToolsService.Config, this.http);
         }
 
