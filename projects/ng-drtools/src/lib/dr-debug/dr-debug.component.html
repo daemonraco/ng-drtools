@@ -1,4 +1,4 @@
 <div *ngIf="show">
-    <pre *ngIf="showData">{{ data | drstringify }}</pre>
+    <pre *ngIf="showData">{{data | json}}</pre>
     <ng-content *ngIf="showContent"></ng-content>
 </div>
